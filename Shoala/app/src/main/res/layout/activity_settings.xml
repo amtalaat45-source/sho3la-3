@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0A0A0C">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layoutDirection="ltr"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="start|center_vertical"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back"
+            android:contentDescription="رجوع" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="⚙️ الإعدادات"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔔 إنذار رفع الموبايل"
+                android:textColor="#FFAB00"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="يرن الإنذار لو شلت الموبايل من على المكتب أثناء التركيز."
+                android:textColor="#B0A8A8"
+                android:textSize="12sp"
+                android:layout_marginBottom="8dp" />
+            <Button
+                android:id="@+id/btnAlarmToggle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="🔔 إنذار رفع الموبايل: شغال"
+                android:textSize="13sp"
+                android:backgroundTint="#2B1410"
+                android:textColor="#FFAB40"
+                android:layout_marginBottom="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔒 قفل السوشيال"
+                android:textColor="#FFAB00"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="لازم تفعّل خدمة 'شعلة' من إعدادات إمكانية الوصول عشان يتقفل فيسبوك وإنستا ويوتيوب."
+                android:textColor="#B0A8A8"
+                android:textSize="12sp"
+                android:layout_marginBottom="8dp" />
+            <Button
+                android:id="@+id/btnAccessibility"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="تفعيل قفل السوشيال"
+                android:textSize="13sp"
+                android:backgroundTint="#B71C1C"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💳 كارت الـ NFC"
+                android:textColor="#FFAB00"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="لتغيير الكارت: افتح القفل بالكارت القديم أولاً، ثم اضغط الزر وامسح الكارت الجديد."
+                android:textColor="#B0A8A8"
+                android:textSize="12sp"
+                android:layout_marginBottom="8dp" />
+            <Button
+                android:id="@+id/btnResetNfc"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="تغيير كارت الـ NFC"
+                android:textSize="13sp"
+                android:backgroundTint="#1E1717"
+                android:textColor="#CCCCCC" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

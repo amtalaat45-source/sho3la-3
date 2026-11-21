@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0A0A0C">
+
+    <!-- Top bar: Settings (top-left) | Logo | Stats (top-right). Forced LTR so positions never flip -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layoutDirection="ltr"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="start|center_vertical"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_settings"
+            android:contentDescription="الإعدادات" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_shoala_logo"
+                android:contentDescription="شعلة"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="شعلة"
+                android:textColor="#FFFFFF"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnStats"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end|center_vertical"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_stats"
+            android:contentDescription="الإحصائيات" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:gravity="center_horizontal">
+
+            <!-- Rank, XP & Flames card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_flame_card"
+                android:padding="18dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/profileRankText"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="🌱 المستوى 1 • مبتدئ"
+                        android:textColor="#FFFFFF"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/flamesCountText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔥 0"
+                        android:textColor="#FF9100"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/levelProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressTint="#FF5722"
+                    android:progressBackgroundTint="#2B1B18"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/nextLevelText"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="XP: 0 • متبقي 100 للمستوى 2"
+                        android:textColor="#B0A8A8"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/streakInfoText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ستريك: 0 يوم (5🔥/5د)"
+                        android:textColor="#FFAB00"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Social minutes available -->
+            <TextView
+                android:id="@+id/rewardText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="متاح: 0 د سوشيال (الواتساب مجاني)"
+                android:textColor="#FF9100"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:background="@drawable/bg_flame_card"
+                android:padding="14dp"
+                android:layout_marginTop="12dp" />
+
+            <!-- NFC lock status -->
+            <TextView
+                android:id="@+id/nfcStateText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔓 البرنامج متوقف (المس كارت الـ NFC لقفل السوشيال)"
+                android:textColor="#FF6D00"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:background="@drawable/bg_flame_card"
+                android:padding="12dp"
+                android:layout_marginTop="12dp" />
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="اختر نوع المؤقت ثم ابدأ التركيز"
+                android:textColor="#FFCCBC"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/bingeStatsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="سوشيال اليوم: 0 / 180 دقيقة (يقفل ساعة عند 3 ساعات)"
+                android:textColor="#8E7B78"
+                android:textSize="11sp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="18dp" />
+
+            <!-- Start focus -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnStartFocus"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="🔥 ابدأ التركيز"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_flame_button"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btnSpendFlames"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="🔥 فتح السوشيال بالشعلات (6 🔥 / دقيقة)"
+                android:textSize="13sp"
+                android:backgroundTint="#2B1410"
+                android:textColor="#FF9100" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

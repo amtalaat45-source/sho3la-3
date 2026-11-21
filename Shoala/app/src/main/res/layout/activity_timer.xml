@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0A0A0C">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layoutDirection="ltr"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="start|center_vertical"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back"
+            android:contentDescription="رجوع" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="🔥 التركيز"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:gravity="center_horizontal">
+
+            <!-- ===== Setup (before starting) ===== -->
+            <LinearLayout
+                android:id="@+id/setupGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="اختر نوع المؤقت"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnModeUp"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="52dp"
+                        android:text="⏱️ تصاعدي"
+                        android:textSize="15sp"
+                        android:backgroundTint="#FF3D00"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginEnd="6dp" />
+
+                    <Button
+                        android:id="@+id/btnModeDown"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="52dp"
+                        android:text="⏳ تنازلي"
+                        android:textSize="15sp"
+                        android:backgroundTint="#221918"
+                        android:textColor="#CCCCCC"
+                        android:layout_marginStart="6dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/modeHintText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="التصاعدي: يعد من 00:00 لحد ما توقفه بنفسك."
+                    android:textColor="#B0A8A8"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp" />
+
+                <!-- Countdown duration chooser -->
+                <LinearLayout
+                    android:id="@+id/countdownPanel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:background="@drawable/bg_flame_card"
+                    android:padding="16dp"
+                    android:layout_marginTop="14dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="مدة الجلسة"
+                        android:textColor="#B0A8A8"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layoutDirection="ltr"
+                        android:layout_marginTop="6dp">
+
+                        <Button
+                            android:id="@+id/btnMinus"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:text="−"
+                            android:textSize="24sp"
+                            android:backgroundTint="#2B1410"
+                            android:textColor="#FF9100" />
+
+                        <TextView
+                            android:id="@+id/minutesText"
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+                            android:text="25 د"
+                            android:textColor="#FFFFFF"
+                            android:textSize="32sp"
+                            android:textStyle="bold"
+                            android:gravity="center" />
+
+                        <Button
+                            android:id="@+id/btnPlus"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:text="+"
+                            android:textSize="24sp"
+                            android:backgroundTint="#2B1410"
+                            android:textColor="#FF9100" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp">
+
+                        <Button android:id="@+id/chip15" android:layout_width="0dp" android:layout_weight="1" android:layout_height="40dp" android:text="15" android:textSize="13sp" android:backgroundTint="#221918" android:textColor="#CCCCCC" android:layout_marginEnd="4dp"/>
+                        <Button android:id="@+id/chip25" android:layout_width="0dp" android:layout_weight="1" android:layout_height="40dp" android:text="25" android:textSize="13sp" android:backgroundTint="#221918" android:textColor="#CCCCCC" android:layout_marginEnd="4dp"/>
+                        <Button android:id="@+id/chip45" android:layout_width="0dp" android:layout_weight="1" android:layout_height="40dp" android:text="45" android:textSize="13sp" android:backgroundTint="#221918" android:textColor="#CCCCCC" android:layout_marginEnd="4dp"/>
+                        <Button android:id="@+id/chip60" android:layout_width="0dp" android:layout_weight="1" android:layout_height="40dp" android:text="60" android:textSize="13sp" android:backgroundTint="#221918" android:textColor="#CCCCCC" android:layout_marginEnd="4dp"/>
+                        <Button android:id="@+id/chip90" android:layout_width="0dp" android:layout_weight="1" android:layout_height="40dp" android:text="90" android:textSize="13sp" android:backgroundTint="#221918" android:textColor="#CCCCCC"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Camera spot lock (AR alternative) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_flame_card"
+                    android:padding="16dp"
+                    android:layout_marginTop="14dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="📷 قفل مكان الهاتف بالكاميرا"
+                        android:textColor="#FFAB00"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="الكاميرا بتحفظ شكل الغرفة من مكان الهاتف على المكتب. لو اتشال أو اتحرك من مكانه الإنذار يرن. الشاشة بتفضل شغالة أثناء الجلسة."
+                        android:textColor="#B0A8A8"
+                        android:textSize="12sp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="10dp" />
+
+                    <Button
+                        android:id="@+id/btnCameraLock"
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:text="📷 قفل الكاميرا: متوقف"
+                        android:textSize="13sp"
+                        android:backgroundTint="#221918"
+                        android:textColor="#CCCCCC" />
+
+                    <LinearLayout
+                        android:id="@+id/facingRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:visibility="gone">
+
+                        <Button
+                            android:id="@+id/btnFaceUp"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="42dp"
+                            android:text="الشاشة لفوق"
+                            android:textSize="12sp"
+                            android:backgroundTint="#FF3D00"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginEnd="4dp" />
+
+                        <Button
+                            android:id="@+id/btnFaceDown"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="42dp"
+                            android:text="الشاشة لتحت"
+                            android:textSize="12sp"
+                            android:backgroundTint="#221918"
+                            android:textColor="#CCCCCC"
+                            android:layout_marginStart="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="📱 بعد ما تبدأ: ضع الهاتف ثابتاً على المكتب خلال دقيقتين."
+                    android:textColor="#FFCCBC"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="14dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="🔥 ابدأ"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flame_button"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <!-- ===== Placement (camera spot lock) ===== -->
+            <LinearLayout
+                android:id="@+id/placementGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📍 تثبيت مكان الهاتف"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="6dp" />
+
+                <TextView
+                    android:id="@+id/placementHintText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ضع الهاتف في مكانه النهائي على المكتب، ثم اضغط تثبيت وابعد إيدك."
+                    android:textColor="#FFCCBC"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp">
+
+                    <androidx.camera.view.PreviewView
+                        android:id="@+id/previewView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="36dp"
+                        android:background="@drawable/bg_vault_frame" />
+
+                    <TextView
+                        android:id="@+id/placementCountdownText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:textColor="#FFFFFF"
+                        android:textSize="72sp"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnLockSpot"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="📍 تثبيت المكان"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flame_button"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="14dp" />
+
+                <Button
+                    android:id="@+id/btnSkipCamera"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:text="ابدأ بدون كاميرا"
+                    android:textSize="13sp"
+                    android:backgroundTint="#221918"
+                    android:textColor="#CCCCCC"
+                    android:layout_marginTop="8dp" />
+
+                <Button
+                    android:id="@+id/btnCancelPlacement"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:text="إلغاء"
+                    android:textSize="13sp"
+                    android:backgroundTint="#1E1717"
+                    android:textColor="#B0A8A8"
+                    android:layout_marginTop="6dp" />
+            </LinearLayout>
+
+            <!-- ===== Focus view (while studying) ===== -->
+            <LinearLayout
+                android:id="@+id/focusGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/modeLabelText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⏱️ تصاعدي"
+                    android:textColor="#FFAB00"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp" />
+
+                <LinearLayout
+                    android:layout_width="240dp"
+                    android:layout_height="240dp"
+                    android:background="@drawable/bg_timer_ring"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/timerText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00"
+                        android:textColor="#FFFFFF"
+                        android:textSize="54sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/countdownProgress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressTint="#FF5722"
+                    android:progressBackgroundTint="#2B1B18"
+                    android:layout_marginBottom="16dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/alertCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_danger_button"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="14dp"
+                    android:layout_marginBottom="12dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/cameraStatusText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#8E7B78"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="12dp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/controlsRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnPauseResume"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="52dp"
+                        android:text="إيقاف مؤقت"
+                        android:textSize="14sp"
+                        android:backgroundTint="#241918"
+                        android:textColor="#FFAB40"
+                        android:layout_marginEnd="8dp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnEnd"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="52dp"
+                        android:text="إنهاء الجلسة"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_danger_button"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnNewSession"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="🔥 جلسة جديدة"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_flame_button"
+                    android:textColor="#FFFFFF"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="اختر نوع المؤقت ثم ابدأ التركيز"
+                android:textColor="#FFCCBC"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:layout_marginTop="16dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
