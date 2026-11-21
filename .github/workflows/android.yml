@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Shoala
 
     steps:
     - uses: actions/checkout@v4
@@ -18,19 +21,14 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Unzip project
-      run: unzip -q "Shoala-Android-Project (3).zip" -d extracted_project
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
 
     - name: Build with Gradle
-      run: |
-        GRADLEW_PATH=$(find extracted_project -name "gradlew" -type f | head -n 1)
-        PROJECT_DIR=$(dirname "$GRADLEW_PATH")
-        cd "$PROJECT_DIR"
-        chmod +x gradlew
-        ./gradlew assembleDebug
+      run: ./gradlew assembleDebug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: Shoala-Debug-APK
-        path: extracted_project/**/build/outputs/apk/debug/*.apk
+        path: Shoala/app/build/outputs/apk/debug/*.apk
